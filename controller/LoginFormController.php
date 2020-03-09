@@ -1,10 +1,10 @@
 <?php
-require_once(__DIR__ . '/ControllerInterface.php');
+require_once(__DIR__ . '/AbstractBaseController.php');
 
-class LoginFormController implements ControllerInterface
+class LoginFormController extends AbstractBaseController
 {
     public function run()
     {
-        return file_get_contents(__DIR__ . '/../view/loginForm.html');
+        return $this->view('loginForm');
     }
 }
