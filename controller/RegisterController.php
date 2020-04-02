@@ -4,11 +4,12 @@ require_once(__DIR__.'/../service/UserService.php');
 
 class RegisterController implements ControllerInterface{
     public function run(){
-        if (UserService::getUserByEmail($_POST['email'])){
-            return 'Van ilyen felhasználó';
+        if (!UserService::getUserByEmail($_POST['email'])){
+            UserService::createUser($_POST['email'], $_POST['password']);
+            return 'Sikeresen beregisztráltál!';
         }
         else{
-            return 'Nincs ilyen felhasználó';
+            return 'Van ilyen felhasználó';
         }
     }
 }

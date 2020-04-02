@@ -1,6 +1,8 @@
 <?php
 
 require_once(__DIR__.'/DatabaseService.php');
+require_once(__DIR__.'/AuthenticationService.php');
+
 
 class UserService{
     public static function getUserByEmail($email){
@@ -11,5 +13,9 @@ class UserService{
         else{
             print_r(DatabaseService::getConnection()->errorInfo());
         }
+    }
+    public static function createUser($email, $password) {
+        $password = AuthenticationService::hashPassword($password);
+        DatabaseService::getConnection()->query("INSERT INTO users (email, password) VALUES ('".$email."','".$password."');");
     }
 }
