@@ -12,7 +12,10 @@ class AuthenticationService {
             return $_SESSION['user'];
         }
     }
+    public static function logout(){
+        $_SESSION['user'] = null;
+    }
     public static function isAuthenticated() {
-        return !is_null($_SESSION['user']);
+        return isset($_SESSION['user']) && !is_null($_SESSION['user']);
     }
 }

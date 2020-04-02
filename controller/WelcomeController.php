@@ -5,6 +5,6 @@ class WelcomeController extends AbstractBaseController
 {
     public function run()
     {
-        return 'Üdv ' . $_SESSION['user']['email'] . '!';
+        return $this->view('welcome', $_SESSION['user']);
     }
 }
