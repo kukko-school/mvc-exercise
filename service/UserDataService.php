@@ -13,4 +13,11 @@ class UserDataService{
         }
         return $output;
     }
+    public static function storeDataForUser($userId, $data){
+        foreach ($data as $key => $value) {
+            if (DatabaseService::getConnection()->query("SELECT COUNT(1) FROM user_data WHERE fk_user = '$userId' AND data_key = '$key'")->fetchColumn() > 0){
+                DatabaseService::getConnection()->query("UPDATE user_data SET data_value = '$value' WHERE fk_user = '$userId' AND data_key = '$key'");
+            }
+        }
+    }
 }
