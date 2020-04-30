@@ -6,11 +6,20 @@
     <title>Profil</title>
 </head>
 <body>
-    <form action="index.php?page=ProfileSave" method="POST">
-        <label for="realname">
-            Valós név
-        </label>
-        <input type="text" name="realname" id="realname" placeholder="Valós név" value="{{realname}}" />
+    <form action="index.php?page=ProfileSave" method="POST" enctype="multipart/form-data">
+        <inputgroup>
+            <label for="realname">
+                Valós név
+            </label>
+            <input type="text" name="realname" id="realname" placeholder="Valós név" value="{{realname}}" />
+        </inputgroup>
+        <inputgroup>
+            <img src="{{profile-picture}}" />
+            <label for="profile-picture">
+                Profilkép
+            </label>
+            <input type="file" name="profile-picture" id="profile-picture" />
+        </inputgroup>
         <button type="submit">
             Mentés
         </button>

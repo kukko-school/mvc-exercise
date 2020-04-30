@@ -18,6 +18,9 @@ class UserDataService{
             if (DatabaseService::getConnection()->query("SELECT COUNT(1) FROM user_data WHERE fk_user = '$userId' AND data_key = '$key'")->fetchColumn() > 0){
                 DatabaseService::getConnection()->query("UPDATE user_data SET data_value = '$value' WHERE fk_user = '$userId' AND data_key = '$key'");
             }
+            else{
+                DatabaseService::getConnection()->query("INSERT INTO user_data (fk_user, data_key, data_value) VALUES ('$userId', '$key', '$value')");
+            }
         }
     }
 }
