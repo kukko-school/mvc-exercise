@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
     <link rel="stylesheet" href="./css/style.css" />
 </head>
+
 <body>
     <form id="register-form" action="index.php?page=Login" method="POST">
+        <span id="clock"></span>
         <input type="text" name="email">
         <input type="password" name="password">
         <button type="submit">
@@ -15,6 +18,30 @@
         <a href="index.php?page=RegisterForm">
             Regisztráció
         </a>
+        <span id="loginError"></span>
     </form>
+    <script>
+        document.querySelector('#register-form button[type=submit]').addEventListener("click", function (e) {
+            var inputs = document.querySelectorAll('#register-form input'),
+                sendable = true;
+            for (var i = 0; i < inputs.length; i++){
+                sendable = sendable && inputs[i].value.length > 0;
+            }
+            if (!sendable){
+                e.preventDefault();
+                document.getElementById('loginError').innerText = "Minden mező kitöltése kötelező!";
+            }
+            else{
+                document.getElementById('loginError').innerText = "";
+            }
+        });
+        let fillClock = function(){
+            var now = new Date();
+            document.getElementById('clock').innerText = (now.getHours().toString().padStart(2, '0')) + ":" + (now.getMinutes().toString().padStart(2, '0')) + ":" + (now.getSeconds().toString().padStart(2, '0'));
+        };
+        fillClock();
+        setInterval(fillClock, 1000);
+    </script>
 </body>
+
 </html>
