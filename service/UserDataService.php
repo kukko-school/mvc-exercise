@@ -1,9 +1,5 @@
 <?php
 
-require_once(__DIR__.'/DatabaseService.php');
-require_once(__DIR__.'/AuthenticationService.php');
-
-
 class UserDataService{
     public static function getDataForUser($userId){
         $output = [];

@@ -1,6 +1,6 @@
 <?php
-require_once(__DIR__ . '/AbstractBaseController.php');
-require_once(__DIR__ . '/../service/UserDataService.php');
+
+namespace Controller;
 
 class ProfileSaveController extends AbstractBaseController
 {

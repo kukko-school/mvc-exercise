@@ -1,6 +1,6 @@
 <?php
-require_once(__DIR__.'/ControllerInterface.php');
-require_once(__DIR__.'/../service/UserService.php');
+
+namespace Controller;
 
 class RegisterController implements ControllerInterface{
     public function run(){

@@ -1,6 +1,6 @@
 <?php
 
-require_once(__DIR__ . '/ControllerInterface.php');
+namespace Controller;
 
 abstract class AbstractBaseController implements ControllerInterface
 {

@@ -1,7 +1,5 @@
 <?php
 
-require_once(__DIR__.'/UserService.php');
-
 class AuthenticationService {
     public static function hashPassword($password) {
         return hash('sha3-512', $password);

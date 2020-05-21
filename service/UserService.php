@@ -1,9 +1,5 @@
 <?php
 
-require_once(__DIR__.'/DatabaseService.php');
-require_once(__DIR__.'/AuthenticationService.php');
-
-
 class UserService{
     public static function getUserByEmail($email){
         $result = DatabaseService::getConnection()->query("SELECT * FROM users WHERE email = '".$email."' LIMIT 1");

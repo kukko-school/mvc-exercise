@@ -1,5 +1,6 @@
 <?php
-require_once(__DIR__ . '/AbstractBaseController.php');
+
+namespace Controller;
 
 class RegisterFormController extends AbstractBaseController
 {
